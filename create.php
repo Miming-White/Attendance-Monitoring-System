@@ -54,7 +54,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: url('bg.jpg') no-repeat center center/cover;
+        background: url('icons/bg.jpg') no-repeat center center/cover;
         opacity: 0.3;
         z-index: -1;
     }
@@ -70,19 +70,19 @@
                         width: 60%; 
                         margin: auto;">
 
-                <h1 style="color: black; text-align: center; margin-bottom: 20px;">
+                <h1 style="color: black; text-align: center; margin-bottom: 20px; font-weight: bold;">
                     Add New Log
                 </h1>
 
     <div class="d-flex flex-row justify-content-center align-items-center">
 
             <div style="width: 50%; display: flex; justify-content: center; align-items: center;">
-                <img src="logo.png" alt="Illustration"
+                <img src="icons/logo.png" alt="Illustration"
                     style="width: 90%; border-radius: 10px;">
             </div>
 
                 <div style="width: 40%; padding-left: 20px; display: flex; flex-direction: column; align-items: center;">
-                <form method="POST" action="create.php">
+                <form method="POST">
 
                     <div class="mb-3">
                         <label for="id" class="form-label" style="color: black;">ID</label>
@@ -126,14 +126,22 @@
             $sql = "INSERT INTO attendance_logs (id, name, log_datetime, time_out, status)
                     VALUES ('$id', '$name', '$log_datetime', '$time_out', '$status')";
 
-            if (mysqli_query($conn, $sql)) {
-                echo "<script>
-                        alert('Record added successfully!');
-                        window.location.href = '/Attendance-Monitoring-System/attendance.php';
-                      </script>";
-            } else {
-                echo "<div class='alert alert-danger mt-3'>Error: " . mysqli_error($conn) . "</div>";
-            }
+        if (mysqli_query($conn, $sql)) {
+
+            echo "<script>
+                alert('Record added successfully!');
+                window.location.href = 'attendance.php';
+            </script>";
+        exit;
+
+        } else {
+
+            echo "<script>
+                    alert('Error adding record: " . mysqli_error($conn) . "');
+                    window.history.back();
+                </script>";
+            exit;
+        }
 
             mysqli_close($conn);
         }

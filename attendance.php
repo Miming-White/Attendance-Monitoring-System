@@ -37,7 +37,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: url('bg.jpg') no-repeat center center/cover;
+        background: url('icons/bg.jpg') no-repeat center center/cover;
         opacity: 0.3;
         z-index: -1;
     }
@@ -53,21 +53,21 @@
 
     <div class="d-flex justify-content-start align-items-center mb-3">
         <a href="index.php" class="me-2">
-            <img src="back.png" width="50" alt="Back" style="cursor: pointer;">
+            <img src="icons/back.png" width="50" alt="Back" style="cursor: pointer;">
         </a>
         <h1 class="me-2" style="font-weight: bold;">Attendance Log</h1>
     </div>
 
     <div class="d-flex justify-content-end">
             <a href="/Attendance-Monitoring-System/create.php">
-        <img src="addlog.png" width="120" alt="Add Log" style="cursor: pointer;">
+        <img src="icons/addlog.png" width="120" alt="Add Log" style="cursor: pointer;">
     </a>
     </div>
         <br>
         <table class = "table">
         <thead>
             <tr>
-                <th>Number</th>
+                <th>#</th>
                 <th>ID</th>
                 <th>Name</th>
                 <th>Log Date/Time</th>
@@ -96,17 +96,17 @@
 
                             echo "<td>
                                     <a href='/Attendance-Monitoring-System/edit.php?number=" . $row['number'] . "'>
-                                    <img src='edit.png' width='40' alt='Edit' style='cursor:pointer;'>
+                                    <img src='icons/edit.png' width='40' alt='Edit' style='cursor:pointer;'>
                                 </a>
 
                                     <a href='/Attendance-Monitoring-System/delete.php?number=" . $row['number'] . "' onclick=\"return confirm('Delete this record?');\">
-                                    <img src='delete.png' width='45' alt='Delete' style='cursor:pointer;'>
+                                    <img src='icons/delete.png' width='45' alt='Delete' style='cursor:pointer;'>
                                 </a>
                                 </td>";
 
                             echo "<td>
                                     <a href='/Attendance-Monitoring-System/timeout.php?number=" . $row['number'] . "'>
-                                    <img src='timeout.png' width='100' alt='Edit' style='cursor:pointer;'>
+                                    <img src='icons/timeout.png' width='100' alt='Edit' style='cursor:pointer;'>
                                 </td>";
 
                             echo "</tr>";

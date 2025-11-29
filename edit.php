@@ -10,6 +10,18 @@
         color: white;
     }
 
+    body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('icons/bg.jpg') no-repeat center center/cover;
+        opacity: 0.3;
+        z-index: -1;
+    }
+
     .card {
         background-color: rgba(0, 0, 0, 0.6);
         border-radius: 10px;
@@ -38,9 +50,9 @@
 </style>
 </head>
 
-<body style="margin: 50px; background-image: url('canva-beige-abstract-shapes-desk.jpg'); background-size: cover; background-repeat: no-repeat; background-attachment: fixed;">
+<body>
 
-    <h1 class="text-center mb-4" style="color: black;">EDIT RECORD</h1>
+    <h1 class="text-center mb-4" style="color: black; font-weight: bold;">Edit Record</h1>
 
     <div class="container">
         <div class="card shadow p-4">
@@ -78,7 +90,7 @@
                     if (mysqli_query($conn, $sql_update)) {
                         echo "<script>
                                 alert('Record updated successfully!');
-                                window.location.href = '/Attendance-Monitoring-System/index.php';
+                                window.location.href = '/Attendance-Monitoring-System/attendance.php';
                               </script>";
                     } else {
                         echo "<div class='alert alert-danger mt-3'>Error: " . mysqli_error($conn) . "</div>";
