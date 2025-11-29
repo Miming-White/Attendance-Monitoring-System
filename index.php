@@ -18,8 +18,8 @@ $tiles = [
   :root{
     --gap: 18px;
     --radius: 8px;
-    --tile-bg: #d9b92bff;
-    --tile-bg-2: #d9624aff;
+    --tile-bg: #342bd9ff;
+    --tile-bg-2: #624ad9ff;
     --tile-text: #fff;
     --max-width: 1100px;
   }
@@ -157,7 +157,7 @@ $tiles = [
 </head>
 <body>
   <div class="wrap">
-    <h1>Dashboard</h1>
+    <h1 style="font-weight: bold;">Dashboard</h1>
 
     <div class="grid" role="list">
       <?php foreach($tiles as $k => $t):

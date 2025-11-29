@@ -78,7 +78,7 @@
                     if (mysqli_query($conn, $sql_update)) {
                         echo "<script>
                                 alert('Record updated successfully!');
-                                window.location.href = '/final/index.php';
+                                window.location.href = '/Attendance-Monitoring-System/index.php';
                               </script>";
                     } else {
                         echo "<div class='alert alert-danger mt-3'>Error: " . mysqli_error($conn) . "</div>";
@@ -110,7 +110,7 @@
                 </div>
 
                 <div class="d-flex justify-content-between">
-                    <a href="/final/index.php" class="btn btn-secondary">Back</a>
+                    <a href="/Attendance-Monitoring-System/index.php" class="btn btn-secondary">Back</a>
                     <button type="submit" name="update" class="btn btn-warning">Update Log</button>
                 </div>
             </form>

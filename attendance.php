@@ -14,6 +14,8 @@
         border-radius: 12px;
         overflow: hidden;
         box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+        background: linear-gradient(135deg, #0040ffff, #661cc8ff); /* gradient */
+        color: white; /* text color */
     }
 
     .table th, 
@@ -21,7 +23,7 @@
         border: 1px solid rgba(255, 255, 255, 0.2);
         padding: 12px;
         opacity: 0.9;
-
+        text-align: center;
     }
 
     .table, th, td {
@@ -53,10 +55,13 @@
         <a href="index.php" class="me-2">
             <img src="back.png" width="50" alt="Back" style="cursor: pointer;">
         </a>
-        <h1 class="me-2">Attendance Log</h1>
+        <h1 class="me-2" style="font-weight: bold;">Attendance Log</h1>
     </div>
+
     <div class="d-flex justify-content-end">
-        <a class="btn btn-success" href="/Attendance-Monitoring-System/create.php" role="button">+ADD LOG</a>
+            <a href="/Attendance-Monitoring-System/create.php">
+        <img src="addlog.png" width="120" alt="Add Log" style="cursor: pointer;">
+    </a>
     </div>
         <br>
         <table class = "table">
@@ -91,16 +96,17 @@
 
                             echo "<td>
                                     <a href='/Attendance-Monitoring-System/edit.php?number=" . $row['number'] . "'>
-                                    <img src='edit.png' width='50' alt='Edit' style='cursor:pointer;'>
+                                    <img src='edit.png' width='40' alt='Edit' style='cursor:pointer;'>
                                 </a>
 
                                     <a href='/Attendance-Monitoring-System/delete.php?number=" . $row['number'] . "' onclick=\"return confirm('Delete this record?');\">
-                                    <img src='delete.png' width='50' alt='Delete' style='cursor:pointer;'>
+                                    <img src='delete.png' width='45' alt='Delete' style='cursor:pointer;'>
                                 </a>
                                 </td>";
 
                             echo "<td>
-                                    <a class='btn btn-warning' href='/Attendance-Monitoring-System/timeout.php?number=" . $row['number'] . "' role='button'>Time Out</a>
+                                    <a href='/Attendance-Monitoring-System/timeout.php?number=" . $row['number'] . "'>
+                                    <img src='timeout.png' width='100' alt='Edit' style='cursor:pointer;'>
                                 </td>";
 
                             echo "</tr>";
