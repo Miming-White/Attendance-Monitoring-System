@@ -97,7 +97,8 @@
 
 
                     <div class="d-flex justify-content-between">
-                        <a href="/final/index.php" class="btn btn-secondary">Back</a>
+                        <a href="/final/index.php" class="btn btn-secondary">Dashboard</a>
+                        <a href="/final/attendance.php" class="btn btn-warning">Back</a>
                         <button type="submit" name="submit" class="btn btn-success">Time In</button>
                     </div>
 
@@ -129,7 +130,7 @@
             if (mysqli_query($conn, $sql)) {
                 echo "<script>
                         alert('Record added successfully!');
-                        window.location.href = '/final/index.php';
+                        window.location.href = '/final/attendance.php';
                       </script>";
             } else {
                 echo "<div class='alert alert-danger mt-3'>Error: " . mysqli_error($conn) . "</div>";
