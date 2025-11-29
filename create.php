@@ -101,7 +101,6 @@
                         <a href="/Attendance-Monitoring-System/attendance.php" class="btn btn-warning">Back to Records</a>
                         <button type="submit" name="submit" class="btn btn-success">TIME IN</button>
                     </div>
-
                 </form>
             </div>
         </div>
@@ -130,7 +129,7 @@
             if (mysqli_query($conn, $sql)) {
                 echo "<script>
                         alert('Record added successfully!');
-                        window.location.href = '/final/attendance.php';
+                        window.location.href = '/Attendance-Monitoring-System/attendance.php';
                       </script>";
             } else {
                 echo "<div class='alert alert-danger mt-3'>Error: " . mysqli_error($conn) . "</div>";
