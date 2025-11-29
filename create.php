@@ -97,9 +97,9 @@
 
 
                     <div class="d-flex justify-content-between">
-                        <a href="/Attendance-Monitoring-System/index.php" class="btn btn-secondary">Back to Dashboard</a>
+                        <a href="/Attendance-Monitoring-System/index.php" class="btn btn-primary">Back to Dashboard</a>
                         <a href="/Attendance-Monitoring-System/attendance.php" class="btn btn-warning">Back to Log</a>
-                        <button type="submit" name="submit" class="btn btn-success">Time In</button>
+                        <button type="submit" name="submit" class="btn btn-success">TIME IN</button>
                     </div>
 
                 </form>

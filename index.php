@@ -2,10 +2,10 @@
 $tiles = [
     'A' => ['View Attendance', 'attendance.php', 'tile--wide-top'],
     'B' => ['Time In', 'create.php', 'tile--square'],
-    'C' => ['Registered Attendees', 'timeout.php', 'tile--square'],
+    'C' => ['Registered Attendees', 'attendees.php', 'tile--square'],
     'D' => ['Add Excuse', 'createexcuse.php', 'tile--square'],
     'E' => ['Excuses', 'excuse.php', 'tile--square'],
-    'F' => ['Admin / Settings', 'settings.php', 'tile--wide-bottom'],
+    'F' => ['Settings', 'settings.php', 'tile--wide-bottom'],
     'G' => ['About Us', 'aboutus.php', 'tile--tall'],
 ];
 ?><!doctype html>
@@ -13,13 +13,13 @@ $tiles = [
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Dashboard — Tiles</title>
+<title>Dashboard</title>
 <style>
   :root{
     --gap: 18px;
     --radius: 8px;
-    --tile-bg: #2b82d9ff;
-    --tile-bg-2: #4ad98aff;
+    --tile-bg: #d9b92bff;
+    --tile-bg-2: #d9624aff;
     --tile-text: #fff;
     --max-width: 1100px;
   }
