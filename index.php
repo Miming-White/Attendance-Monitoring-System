@@ -1,6 +1,6 @@
 <?php
 $tiles = [
-    'A' => ['View Attendance', 'index.php', 'tile--wide-top'],
+    'A' => ['View Attendance', 'attendance.php', 'tile--wide-top'],
     'B' => ['Time In', 'create.php', 'tile--square'],
     'C' => ['Registered Attendees', 'timeout.php', 'tile--square'],
     'D' => ['Add Excuse', 'createexcuse.php', 'tile--square'],
