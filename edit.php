@@ -23,7 +23,7 @@
     }
 
     .card {
-        background-color: rgba(0, 0, 0, 0.6);
+        background-color: white;
         border-radius: 10px;
     }
 
@@ -33,12 +33,12 @@
 
     .form-control {
         background-color: rgba(255, 255, 255, 0.2);
-        color: white;
+        color: black;
         border: 1px solid rgba(255, 255, 255, 0.5);
     }
 
     .form-control::placeholder {
-        color: rgba(255, 255, 255, 0.7);
+        color: black(255, 255, 255, 0.7);
     }
 
     .form-control:focus {
@@ -118,7 +118,7 @@
 
                 <div class="mb-3">
                     <label class="form-label">Status</label>
-                    <input type="text" class="form-control" name="status" value="<?php echo $row['status']; ?>">
+                    <input type="text" class="form-control" name="status" value="<?php echo $row['status']; ?>" readonly>
                 </div>
 
                 <div class="d-flex justify-content-between">

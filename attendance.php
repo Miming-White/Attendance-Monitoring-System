@@ -73,7 +73,7 @@
                 <th>Log Date/Time</th>
                 <th>Time Out</th>
                 <th>Status</th>
-                <th>Edit/Delete</th>
+                <th>Delete</th>
                 <th></th>
             </tr>
         </thead>
@@ -95,9 +95,6 @@
                             echo "<td>" . $row['status'] . "</td>";
 
                             echo "<td>
-                                    <a href='/Attendance-Monitoring-System/edit.php?number=" . $row['number'] . "'>
-                                    <img src='icons/edit.png' width='40' alt='Edit' style='cursor:pointer;'>
-                                </a>
 
                                     <a href='/Attendance-Monitoring-System/delete.php?number=" . $row['number'] . "' onclick=\"return confirm('Delete this record?');\">
                                     <img src='icons/delete.png' width='45' alt='Delete' style='cursor:pointer;'>

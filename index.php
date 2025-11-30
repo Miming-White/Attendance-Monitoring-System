@@ -2,8 +2,8 @@
 $tiles = [
     'A' => ['View Attendance', 'attendance.php', 'tile--wide-top'],
     'B' => ['Time In', 'create.php', 'tile--square'],
-    'C' => ['Reset/Clear All Attendance', 'clearattendance.php', 'tile--square'],
-    'D' => ['Register Attendees', 'register.php', 'tile--square'],
+    'C' => ['Reset/Clear All Attendance', "javascript:confirmClear()", 'tile--square'],
+    'D' => ['Register Attendee', 'register.php', 'tile--square'],
     'E' => ['Excuses', 'excuse.php', 'tile--square'],
     'F' => ['View Attendees', 'attendees.php', 'tile--wide-bottom'],
     'G' => ['About Us', 'aboutus.php', 'tile--tall'],
@@ -186,5 +186,15 @@ $tiles = [
       <?php endforeach; ?>
     </div>
   </div>
+
+  <script>
+    function confirmClear() {
+      if (confirm("Are you sure you want to delete ALL attendance logs? This action cannot be undone.")) {
+        window.location.href = "clearattendance.php";
+      }
+  }
+</script>
+
+
 </body>
 </html>

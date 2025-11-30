@@ -32,8 +32,15 @@
     .card {
         background-color: rgba(255,255,255,0.9);
         padding: 25px;
-        border-radius: 20px;
+        border-radius: 50px;
         width: 50%;
+    }
+
+    .form-control {
+        background-color: #f1f1f1;
+        color: black;
+        border: 1px solid #ccc;
+        border-radius: 50px;
     }
 </style>
 </head>

@@ -111,11 +111,11 @@
                     <td>' . $phone . '</td>
                     <td>' . $email . '</td>
                     <td class="text-center">
-                        <a href="edit_attendee.php?id=' . $id . '">
+                        <a href="editattendee.php?attendee_id=' . $id . '">
                             <img src="icons/edit.png" width="40" style="cursor:pointer;" alt="Edit">
                         </a>
 
-                        <a href="delete_attendee.php?id=' . $id . '" onclick="return confirm(\'Are you sure you want to delete this attendee?\');">
+                        <a href="deleteattendee.php?attendee_id=' . $id . '" onclick="return confirm(\'Are you sure you want to delete this attendee?\');">
                             <img src="icons/delete.png" width="40" style="cursor:pointer;" alt="Delete">
                         </a>
                     </td>

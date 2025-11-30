@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Record</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
 <style>
     body {
@@ -34,9 +35,9 @@
     }
 
     .form-control {
-        background-color: rgba(255, 255, 255, 0.2);
+        background-color: #f1f1f1;
         color: black;
-        border: 1px solid rgba(0, 0, 0, 0.5);
+        border: 1px solid #ccc;
         border-radius: 50px;
     }
 
@@ -66,22 +67,22 @@
     <div class="container">
             <div class="card shadow p-4" 
                 style="background-color: rgba(255,255,255,0.9); 
-                        border-radius: 20px; 
+                        border-radius: 50px; 
                         width: 60%; 
                         margin: auto;">
 
-                <h1 style="color: black; text-align: center; margin-bottom: 20px; font-weight: bold;">
+                <h2 style="color: black; text-align: center; margin-bottom: 20px;">
                     Add New Log
-                </h1>
+                </h2>
 
     <div class="d-flex flex-row justify-content-center align-items-center">
 
-            <div style="width: 50%; display: flex; justify-content: center; align-items: center;">
+            <div style="width: 45%; display: flex; justify-content: center; align-items: center;">
                 <img src="icons/logo.png" alt="Illustration"
                     style="width: 90%; border-radius: 10px;">
             </div>
 
-                <div style="width: 40%; padding-left: 20px; display: flex; flex-direction: column; align-items: center;">
+                <div style="width: 50%; padding-left: 20px; display: flex; flex-direction: column; align-items: center;">
                 <form method="POST">
 
                     <div class="mb-3">
