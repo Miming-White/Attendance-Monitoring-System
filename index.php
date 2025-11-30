@@ -39,7 +39,7 @@ $tiles = [
     body {
         font-family: 'Poppins', sans-serif;
     }
-    h1 {
+    h2 {
         font-family: 'Poppins', sans-serif;
     }
 
@@ -57,7 +57,7 @@ $tiles = [
         max-width:var(--max-width);
     }
 
-  h1{ margin:0 0 14px 0; font-size:20px; color:#111827; }
+  h2{ margin:0 0 14px 0; font-size:20px; color:#111827; }
 
   .grid{
     display:grid;
@@ -157,7 +157,7 @@ $tiles = [
 </head>
 <body>
   <div class="wrap">
-    <h1 style="font-weight: bold;">Dashboard</h1>
+    <h2 style="font-weight: bold;">Dashboard</h2>
 
     <div class="grid" role="list">
       <?php foreach($tiles as $k => $t):

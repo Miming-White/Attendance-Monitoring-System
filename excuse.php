@@ -63,7 +63,7 @@
 </head>
 <body style="margin: 50px;">
 
-        <h2 style="font-weight: bold;">Attendance Log</h2>
+        <h2 style="font-weight: bold;">Excuse Log</h2>
 
     <div class="table-container">
 
@@ -71,7 +71,7 @@
         <a href="/Attendance-Monitoring-System/index.php">
             <img src="icons/back.png" width="60" alt="Back" style="cursor: pointer;">
     </a>
-        <a href="/Attendance-Monitoring-System/create.php">
+        <a href="/Attendance-Monitoring-System/addexcuse.php">
             <img src="icons/add.png" width="75" alt="Add Log" style="cursor: pointer;">
     </a>
     </div>
@@ -83,8 +83,6 @@
                 <th>ID</th>
                 <th>Name</th>
                 <th>Log Date/Time</th>
-                <th>Time Out</th>
-                <th>Status</th>
                 <th>Delete</th>
                 <th></th>
             </tr>
@@ -93,7 +91,7 @@
                 <?php
                     include 'config.php';
 
-                    $sql = "SELECT * FROM attendance_logs";
+                    $sql = "SELECT * FROM excuses";
                     $result = mysqli_query($conn, $sql);
 
                     if (mysqli_num_rows($result) > 0) {
@@ -102,20 +100,13 @@
                             echo "<td>" . $row['number'] . "</td>";
                             echo "<td>" . $row['id'] . "</td>";
                             echo "<td>" . $row['name'] . "</td>";
-                            echo "<td>" . $row['log_datetime'] . "</td>";
-                            echo "<td>" . $row['time_out'] . "</td>";
-                            echo "<td>" . $row['status'] . "</td>";
+                            echo "<td>" . $row['creation_date'] . "</td>";
 
                             echo "<td>
 
-                                    <a href='/Attendance-Monitoring-System/delete.php?number=" . $row['number'] . "' onclick=\"return confirm('Delete this record?');\">
+                                    <a href='/Attendance-Monitoring-System/deleteexcuse.php?number=" . $row['number'] . "' onclick=\"return confirm('Delete this record?');\">
                                     <img src='icons/delete.png' width='45' alt='Delete' style='cursor:pointer;'>
                                 </a>
-                                </td>";
-
-                            echo "<td>
-                                    <a href='/Attendance-Monitoring-System/timeout.php?number=" . $row['number'] . "'>
-                                    <img src='icons/timeout.png' width='100' alt='Edit' style='cursor:pointer;'>
                                 </td>";
 
                             echo "</tr>";

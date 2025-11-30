@@ -102,7 +102,7 @@
 
             <form method="POST" action="">
                 <div class="mb-3">
-                    <label class="form-label">Log Number (fixed)</label>
+                    <label class="form-label">Attendee ID (fixed)</label>
                     <input type="text" class="form-control" name="number" value="<?php echo $row['number']; ?>" readonly>
                 </div>
 
@@ -117,7 +117,7 @@
                 </div>
 
                 <div class="mb-3">
-                    <label class="form-label">Status</label>
+                    <label class="form-label">Status (fixed)</label>
                     <input type="text" class="form-control" name="status" value="<?php echo $row['status']; ?>" readonly>
                 </div>
 

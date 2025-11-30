@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register Attendee</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
 
 <style>
@@ -84,6 +85,7 @@
                 <option value="" disabled selected>Select Sex</option>
                 <option>Male</option>
                 <option>Female</option>
+                <option>Other</option>
             </select>
         </div>
 
@@ -110,8 +112,11 @@
             $sql = "INSERT INTO attendees (last_name, first_name, middle_name, phone_number, email_address, sex)
                     VALUES ('$ln', '$fn', '$mn', '$phone', '$email', '$sex')";
 
-            if (mysqli_query($conn, $sql)) {
-                echo "<script>alert('Attendee registered successfully!');</script>";
+        if (mysqli_query($conn, $sql)) { 
+            echo "<script>
+                alert('Attendee added successfully!');
+                window.location.href = '/Attendance-Monitoring-System/attendees.php';
+                </script>";
             } else {
                 echo "<div class='alert alert-danger mt-3'>Error: " . mysqli_error($conn) . "</div>";
             }

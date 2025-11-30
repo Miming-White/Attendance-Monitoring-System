@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Record</title>
+    <title>Add Excuse</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
 <style>
@@ -72,7 +72,7 @@
                         margin: auto;">
 
                 <h2 style="color: black; text-align: center; margin-bottom: 20px;">
-                    Add New Log
+                    Add Excuse Log
                 </h2>
 
     <div class="d-flex flex-row justify-content-center align-items-center">
@@ -92,8 +92,8 @@
 
                     <div class="d-flex justify-content-between">
                         <a href="/Attendance-Monitoring-System/index.php" class="btn btn-primary">Dashboard</a>
-                        <a href="/Attendance-Monitoring-System/attendance.php" class="btn btn-secondary">Records</a>
-                        <button type="submit" name="submit" class="btn btn-success">Time In</button>
+                        <a href="/Attendance-Monitoring-System/excuse.php" class="btn btn-secondary">View Excuses</a>
+                        <button type="submit" name="submit" class="btn btn-success">Add</button>
                     </div>
                 </form>
             </div>
@@ -119,19 +119,13 @@ if (isset($_POST['submit'])) {
     date_default_timezone_set('Asia/Manila');
     $log_datetime = date("Y-m-d H:i:s");
 
-    $cutoff = strtotime("08:00:00");
-    $now = strtotime(date("H:i:s"));
-
-    $status = ($now <= $cutoff) ? "PRESENT" : "LATE";
-    $time_out = "-";
-
-    $sql = "INSERT INTO attendance_logs (id, name, log_datetime, time_out, status)
-            VALUES ('$attendee_id', '$full_name', '$log_datetime', '$time_out', '$status')";
+    $sql = "INSERT INTO excuses (id, name, creation_date)
+            VALUES ('$attendee_id', '$full_name', '$log_datetime')";
 
     if (mysqli_query($conn, $sql)) { 
         echo "<script>
-        alert('Record added successfully!');
-        window.location.href = '/Attendance-Monitoring-System/attendance.php';
+        alert('An excuse is added successfully!');
+        window.location.href = '/Attendance-Monitoring-System/excuse.php';
         </script>";
     } else {
         echo "<div class='alert alert-danger mt-3'>Error: " . mysqli_error($conn) . "</div>";

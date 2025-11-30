@@ -4,10 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registered Attendees</title>
-
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
 
     <style>
+
+        h2 {
+        font-family: 'Poppins', sans-serif;
+        }
         body {
             font-family: 'Poppins', sans-serif;
             min-height: 100vh;
@@ -31,7 +35,7 @@
         .table-container {
             background: rgba(255, 255, 255, 0.95);
             color: black;
-            border-radius: 20px;
+            border-radius: 50px;
             padding: 30px;
             width: 90%;
             margin: auto;
@@ -43,7 +47,7 @@
             color: white;
         }
 
-        h1 {
+        h2 {
             color: black;
             font-weight: bold;
             text-align: center;
@@ -58,7 +62,7 @@
 
 <body>
 
-    <h1>Registered Attendees</h1>
+    <h2>Registered Attendees</h2>
 
     <div class="table-container">
 
