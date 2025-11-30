@@ -60,7 +60,7 @@
 
     <div class="d-flex justify-content-end">
             <a href="/Attendance-Monitoring-System/create.php">
-        <img src="icons/addlog.png" width="120" alt="Add Log" style="cursor: pointer;">
+        <img src="icons/add.png" width="75" alt="Add Log" style="cursor: pointer;">
     </a>
     </div>
         <br>

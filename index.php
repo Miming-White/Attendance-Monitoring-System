@@ -2,10 +2,10 @@
 $tiles = [
     'A' => ['View Attendance', 'attendance.php', 'tile--wide-top'],
     'B' => ['Time In', 'create.php', 'tile--square'],
-    'C' => ['Registered Attendees', 'attendees.php', 'tile--square'],
-    'D' => ['Reset/Clear All Attendance', 'clearall.php', 'tile--square'],
+    'C' => ['Reset/Clear All Attendance', 'clearattendance.php', 'tile--square'],
+    'D' => ['Register Attendees', 'register.php', 'tile--square'],
     'E' => ['Excuses', 'excuse.php', 'tile--square'],
-    'F' => ['Settings', 'settings.php', 'tile--wide-bottom'],
+    'F' => ['View Attendees', 'attendees.php', 'tile--wide-bottom'],
     'G' => ['About Us', 'aboutus.php', 'tile--tall'],
 ];
 ?><!doctype html>
@@ -18,7 +18,7 @@ $tiles = [
   :root{
     --gap: 18px;
     --radius: 8px;
-    --tile-bg: #342bd9ff;
+    --tile-bg: #2b5fd9ff;
     --tile-bg-2: #624ad9ff;
     --tile-text: #fff;
     --max-width: 1100px;
@@ -172,7 +172,7 @@ $tiles = [
       ?>
       <a href="<?= $url ?>" class="tile <?= $cls . $posClass ?>" role="listitem" aria-label="<?= $title ?>">
         <span class="icon" aria-hidden="true">
-          <!-- simple generic SVG icon -->
+          <!-- SVG icon -->
           <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
             <rect x="3" y="6" width="18" height="13" rx="2" ry="2"></rect>
             <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
@@ -180,7 +180,7 @@ $tiles = [
         </span>
         <div class="meta">
           <h3><?= $title ?></h3>
-          <p style="opacity:.85; font-size:12px;">Tap to open</p>
+          <p style="opacity:.85; font-size:12px;">Click to open</p>
         </div>
       </a>
       <?php endforeach; ?>

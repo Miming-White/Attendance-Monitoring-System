@@ -85,21 +85,14 @@
                 <form method="POST">
 
                     <div class="mb-3">
-                        <label for="id" class="form-label" style="color: black;">ID</label>
-                        <input type="text" class="form-control" id="id" name="id" required>
+                        <label for="attendee_id" class="form-label" style="color: black;">Attendee ID</label>
+                        <input type="text" class="form-control" id="attendee_id" name="attendee_id" required>
                     </div>
-
-                    <div class="mb-3">
-                        <label for="name" class="form-label" style="color: black;">Name</label>
-                        <input type="text" class="form-control" id="name" name="name" required>
-                    </div>
-
-
 
                     <div class="d-flex justify-content-between">
-                        <a href="/Attendance-Monitoring-System/index.php" class="btn btn-primary">Back to Dashboard</a>
-                        <a href="/Attendance-Monitoring-System/attendance.php" class="btn btn-warning">Back to Records</a>
-                        <button type="submit" name="submit" class="btn btn-success">TIME IN</button>
+                        <a href="/Attendance-Monitoring-System/index.php" class="btn btn-primary">Dashboard</a>
+                        <a href="/Attendance-Monitoring-System/attendance.php" class="btn btn-secondary">Records</a>
+                        <button type="submit" name="submit" class="btn btn-success">Time In</button>
                     </div>
                 </form>
             </div>
@@ -107,44 +100,44 @@
     </div>
 
     <?php
-        include 'config.php';
+include 'config.php';
 
-        if (isset($_POST['submit'])) {
-            $id = $_POST['id'];
-            $name = $_POST['name'];
+if (isset($_POST['submit'])) {
+    $attendee_id = $_POST['attendee_id'];
 
-            date_default_timezone_set('Asia/Manila');
-            $log_datetime = date("Y-m-d H:i:s");
+    $check = mysqli_query($conn, "SELECT * FROM attendees WHERE attendee_id='$attendee_id'");
 
-            $cutoff = strtotime("08:00:00");
-            $time_in_now = strtotime(date("H:i:s"));
+    if (mysqli_num_rows($check) == 0) {
+        echo "<script>alert('This attendee is NOT registered! Register first.');</script>";
+        exit();
+    }
 
-            $status = ($time_in_now <= $cutoff) ? "PRESENT" : "LATE";
+    $row = mysqli_fetch_assoc($check);
+    $full_name = $row['last_name'] . ", " . $row['first_name'] . " " . $row['middle_name'];
 
-            $time_out = "-";
+    date_default_timezone_set('Asia/Manila');
+    $log_datetime = date("Y-m-d H:i:s");
 
-            $sql = "INSERT INTO attendance_logs (id, name, log_datetime, time_out, status)
-                    VALUES ('$id', '$name', '$log_datetime', '$time_out', '$status')";
+    $cutoff = strtotime("08:00:00");
+    $now = strtotime(date("H:i:s"));
 
-        if (mysqli_query($conn, $sql)) {
+    $status = ($now <= $cutoff) ? "PRESENT" : "LATE";
+    $time_out = "-";
 
-            echo "<script>
-                alert('Record added successfully!');
-                window.location.href = 'attendance.php';
-            </script>";
-        exit;
+    $sql = "INSERT INTO attendance_logs (id, name, log_datetime, time_out, status)
+            VALUES ('$attendee_id', '$full_name', '$log_datetime', '$time_out', '$status')";
 
-        } else {
+    if (mysqli_query($conn, $sql)) { 
+        echo "<script>
+        alert('Record added successfully!');
+        window.location.href = '/Attendance-Monitoring-System/attendance.php';
+        </script>";
+    } else {
+        echo "<div class='alert alert-danger mt-3'>Error: " . mysqli_error($conn) . "</div>";
+    }
 
-            echo "<script>
-                    alert('Error adding record: " . mysqli_error($conn) . "');
-                    window.history.back();
-                </script>";
-            exit;
-        }
+}
 
-            mysqli_close($conn);
-        }
     ?>
 </body>
 </html>
