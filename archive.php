@@ -32,8 +32,13 @@ $result = mysqli_query($conn, $sql);
 <body>
     <div class="container">
         <h2>Attendance History</h2>
-                    <a href="attendance.php" class="btn btn-primary mt-3">Back to Attendance</a>
-        <table class="table table-bordered table-striped">
+            <div class="mb-3">
+        <!-- Back to Attendance button -->
+        <a href="attendance.php" class="btn btn-primary">Back to Attendance</a>
+        <!-- Add Absent button -->
+        <a href="clearallarchive.php" class="btn btn-warning">Clear Archive</a>
+    </div>        
+    <table class="table table-bordered table-striped">
             <thead class="table-dark text-center">
                 <tr>
                     <th>History ID</th>

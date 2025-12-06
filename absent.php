@@ -32,11 +32,16 @@ $result = mysqli_query($conn, $sql);
 <body>
     <div class="container">
         <h2>Attendance History</h2>
-                <a href="attendance.php" class="btn btn-primary mt-3">Back to Attendance</a>
+            <div class="mb-3">
+        <!-- Back to Attendance button -->
+        <a href="attendance.php" class="btn btn-primary">Back to Attendance</a>
+        <!-- Add Absent button -->
+        <a href="addabsent.php" class="btn btn-warning">Mark Absentees</a>
+    </div>
         <table class="table table-bordered table-striped">
             <thead class="table-dark text-center">
                 <tr>
-                    <th>History ID</th>
+                    <th>Absent ID</th>
                     <th>Original ID</th>
                     <th>Name</th>
                     <th>Status</th>
@@ -48,7 +53,7 @@ $result = mysqli_query($conn, $sql);
                 if(mysqli_num_rows($result) > 0){
                     while($row = mysqli_fetch_assoc($result)){
                         echo "<tr>";
-                        echo "<td>" . $row['history_id'] . "</td>";
+                        echo "<td>" . $row['absent_id'] . "</td>";
                         echo "<td>" . $row['id'] . "</td>";
                         echo "<td>" . $row['name'] . "</td>";
                         echo "<td>" . $row['status'] . "</td>";
