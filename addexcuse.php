@@ -1,9 +1,10 @@
+<?php include 'config.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Excuse</title>
+    <title>Add Record</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
 <style>
@@ -13,20 +14,16 @@
     align-items: center;
     height: 100vh;
     flex-direction: column;
+    font-family: 'Poppins', sans-serif;
+    color: white;
     }
 
-    body {
-        font-family: 'Poppins', sans-serif;
-    }
     h1 {
         font-family: 'Poppins', sans-serif;
     }
-    body {
-        color: white;
-    }
 
     .card {
-        background-color: rgba(0, 0, 0, 0.6);
+        background-color: white;
         border-radius: 50px;
     }
 
@@ -66,41 +63,69 @@
 
     <div class="container">
             <div class="card shadow p-4" 
-                style="background-color: rgba(255,255,255,0.9); 
-                        border-radius: 50px; 
+                style="border-radius: 50px; 
                         width: 60%; 
                         margin: auto;">
+                        
 
                 <h2 style="color: black; text-align: center; margin-bottom: 20px;">
-                    Add Excuse Log
+                    Add New Excuse
                 </h2>
 
     <div class="d-flex flex-row justify-content-center align-items-center">
 
-            <div style="width: 45%; display: flex; justify-content: center; align-items: center;">
-                <img src="icons/logo.png" alt="Illustration"
-                    style="width: 90%; border-radius: 10px;">
-            </div>
+            <div style="width: 100%; display: flex; flex-direction: column;">
+<form method="POST">
 
-                <div style="width: 50%; padding-left: 20px; display: flex; flex-direction: column; align-items: center;">
-                <form method="POST">
+<div class="mb-3 w-100">
+    <input 
+        type="text" 
+        id="searchInput" 
+        class="form-control" 
+        placeholder="Search by ID or Name...">
+</div>
 
-                    <div class="mb-3">
-                        <label for="attendee_id" class="form-label" style="color: black;">Attendee ID (no duplication)</label>
-                        <input type="text" class="form-control" id="attendee_id" name="attendee_id" required>
-                    </div>
+<div style="max-height: 400px; overflow-y: auto;">
+<table class="table table-bordered table-hover bg-white text-dark">
 
-                    <div class="d-flex justify-content-between">
-                        <a href="/Attendance-Monitoring-System/index.php" class="btn btn-primary">Dashboard</a>
-                        <a href="/Attendance-Monitoring-System/excuse.php" class="btn btn-secondary">View Excuses</a>
-                        <button type="submit" name="submit" class="btn btn-success">Add</button>
-                    </div>
+
+    <thead class="table-dark text-center">
+        <tr>
+            <th>Select</th>
+            <th>ID</th>
+            <th>Full Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php
+        $attendees = mysqli_query($conn, "SELECT * FROM attendees ORDER BY last_name ASC");
+        while ($row = mysqli_fetch_assoc($attendees)) {
+            $fullName = $row['last_name'] . ", " . $row['first_name'] . " " . $row['middle_name'];
+                        ?>
+                        <tr>
+                            <td class="text-center">
+                                <input type="checkbox" name="selected_ids[]" value="<?= $row['attendee_id'] ?>">
+                            </td>
+                            <td><?= $row['attendee_id'] ?></td>
+                            <td><?= $fullName ?></td>
+                        </tr>
+                        <?php } ?>
+                    </tbody>
+                </table>
+
+                <div class="d-flex justify-content-between mt-3">
+                    <a href="/Attendance-Monitoring-System/index.php" class="btn btn-primary">Dashboard</a>
+                    <a href="/Attendance-Monitoring-System/excuse.php" class="btn btn-secondary">Excuses</a>
+                    <button type="submit" name="bulk_timein" class="btn btn-success">Excuse Selected</button>
+                </div>
+    </table>
+</div>
                 </form>
             </div>
         </div>
     </div>
 
-    <?php
+<?php
 include 'config.php';
 
 if (isset($_POST['submit'])) {
@@ -134,5 +159,18 @@ if (isset($_POST['submit'])) {
 }
 
     ?>
+
+<script>
+document.getElementById('searchInput').addEventListener('keyup', function () {
+    let filter = this.value.toLowerCase();
+    let rows = document.querySelectorAll("tbody tr");
+
+    rows.forEach(function (row) {
+        let text = row.textContent.toLowerCase();
+        row.style.display = text.includes(filter) ? "" : "none";
+    });
+});
+</script>
+
 </body>
 </html>

@@ -120,7 +120,7 @@
                         </a>
 
                         <a href="deleteattendee.php?attendee_id=' . $id . '" onclick="return confirm(\'Are you sure you want to delete this attendee?\');">
-                            <img src="icons/delete.png" width="40" style="cursor:pointer;" alt="Delete">
+                            <img src="icons/delete.png" width="43" style="cursor:pointer;" alt="Delete">
                         </a>
                     </td>
                   </tr>';

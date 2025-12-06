@@ -25,15 +25,15 @@
     }
 
     .table {
-        border-radius: 12px;
-        overflow: hidden;
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
-        color: white;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: black;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
     }
 
     .table th, 
     .table td {
-        border: 1px solid rgba(255, 255, 255, 0.2);
+        border: 1px solid rgba(255, 255, 255, 1.0);
         padding: 12px;
         opacity: 0.9;
         text-align: center;
@@ -54,6 +54,21 @@
         opacity: 0.3;
         z-index: -1;
     }
+
+    thead {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    }
+
+    .table tbody tr:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    }
+
+    thead tr {
+    background-color: #212529;
+    color: white;
+}
     </style>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
@@ -76,8 +91,8 @@
     </a>
     </div>
         <br>
-        <table class = "table">
-        <thead>
+        <table class = "table table-bordered table-hover bg-white text-dark">
+        <thead class= "table-dark text-center">
             <tr>
                 <th>#</th>
                 <th>ID</th>
