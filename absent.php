@@ -36,7 +36,7 @@ $result = mysqli_query($conn, $sql);
         <!-- Back to Attendance button -->
         <a href="attendance.php" class="btn btn-primary">Back to Attendance</a>
         <!-- Add Absent button -->
-        <a href="addabsent.php" class="btn btn-warning">Mark Absentees</a>
+        <a href="createabsent.php" class="btn btn-warning">Mark Absentees</a>
     </div>
         <table class="table table-bordered table-striped">
             <thead class="table-dark text-center">

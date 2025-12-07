@@ -193,7 +193,7 @@ $tiles = [
         letter-spacing: 1px;
         color: #1f2937;
     ">
-        ATTENDANCE MONITORING FOR EVENTS IN SCHOOLS
+        ATTENDANCE MONITORING FOR EVENTS
     </div>
   </div>
 
