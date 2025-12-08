@@ -90,8 +90,8 @@
         </div>
 
         <div class="d-flex justify-content-between">
-            <a href="/Attendance-Monitoring-System/index.php" class="btn btn-primary">Dashboard</a>
-            <a href="/Attendance-Monitoring-System/attendees.php" class="btn btn-secondary">Attendees</a>
+            <a href="/Attendance-Monitoring-System/index.php" class="btn btn-dark">Dashboard</a>
+            <a href="/Attendance-Monitoring-System/attendees.php" class="btn btn-info">Attendees</a>
             <button type="submit" class="btn btn-success">Register</button>
         </div>
 

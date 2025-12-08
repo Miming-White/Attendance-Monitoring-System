@@ -67,13 +67,9 @@
     <div class="table-container">
 
         <div class="mb-3 d-flex justify-content-between">
-            <a href="/Attendance-Monitoring-System/index.php">
-            <img src="icons/back.png" width="60" alt="Back" style="cursor: pointer;">
-            </a>
+        <a href="index.php" class="btn btn-dark">< Dashboard</a>
 
-            <a href="/Attendance-Monitoring-System/register.php">
-            <img src="icons/add.png" width="75" alt="Add Log" style="cursor: pointer;">
-            </a>
+        <a href="index.php" class="btn btn-success">+ ADD NEW ATTENDEE</a>
         </div>
         <table class="table table-bordered table-striped">
             <thead>
@@ -115,12 +111,15 @@
                     <td>' . $phone . '</td>
                     <td>' . $email . '</td>
                     <td class="text-center">
-                        <a href="editattendee.php?attendee_id=' . $id . '">
-                            <img src="icons/edit.png" width="40" style="cursor:pointer;" alt="Edit">
+                        <a href="/Attendance-Monitoring-System/editattendee.php?attendee_id=' . $id . '"
+                            class="btn btn-dark btn-sm">
+                                Edit
                         </a>
 
-                        <a href="deleteattendee.php?attendee_id=' . $id . '" onclick="return confirm(\'Are you sure you want to delete this attendee?\');">
-                            <img src="icons/delete.png" width="43" style="cursor:pointer;" alt="Delete">
+                        <a href="/Attendance-Monitoring-System/deleteattendee.php?attendee_id=' . $id . '"
+                            class="btn btn-danger btn-sm"
+                            onclick="return confirm(\'Delete this record?\');">
+                                Delete
                         </a>
                     </td>
                   </tr>';

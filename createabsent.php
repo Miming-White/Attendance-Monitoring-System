@@ -3,7 +3,7 @@ include 'config.php';
 
 // Define today and status
 $today = date('Y-m-d');
-$status = 'Absent';
+$status = 'ABSENT';
 
 // Handle form submission
 if (isset($_POST['bulk_absent'])) {
@@ -49,7 +49,7 @@ if (isset($_POST['bulk_absent'])) {
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Add Absents</title>
+<title>Add Absentee</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
@@ -106,7 +106,7 @@ body::before {
         style="border-radius: 50px; width: 60%; margin: auto;">
 
         <h2 style="color: black; text-align: center; margin-bottom: 20px;">
-            Add Absentees
+            Add Absentee
         </h2>
 
         <div class="d-flex flex-row justify-content-center align-items-center">
@@ -152,8 +152,8 @@ body::before {
                     </div>
 
                     <div class="d-flex justify-content-between mt-3">
-                        <a href="/Attendance-Monitoring-System/index.php" class="btn btn-primary">Dashboard</a>
-                        <a href="/Attendance-Monitoring-System/absent.php" class="btn btn-secondary">Absentees</a>
+                        <a href="/Attendance-Monitoring-System/index.php" class="btn btn-dark">Dashboard</a>
+                        <a href="/Attendance-Monitoring-System/absent.php" class="btn btn-info">Absentees</a>
                         <button type="submit" name="bulk_absent" class="btn btn-danger">
                             Mark Selected as Absent
                         </button>

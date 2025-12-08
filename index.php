@@ -2,7 +2,7 @@
 $tiles = [
     'A' => ['View Attendance', 'attendance.php', 'tile--wide-top'],
     'B' => ['Time In', 'create.php', 'tile--square'],
-    'C' => ['Archive All Attendance', "javascript:confirmClear()", 'tile--square'],
+    'C' => ['Archive All Attendance and Absentees', "javascript:confirmClear()", 'tile--square'],
     'D' => ['Register Attendee', 'register.php', 'tile--square'],
     'E' => ['Absents', 'absent.php', 'tile--square'],
     'F' => ['View Attendees', 'attendees.php', 'tile--wide-bottom'],
@@ -18,8 +18,8 @@ $tiles = [
   :root{
     --gap: 18px;
     --radius: 8px;
-    --tile-bg: #2b5fd9ff;
-    --tile-bg-2: #624ad9ff;
+    --tile-bg: #4ca0ddff;
+    --tile-bg-2: #5494fcff;
     --tile-text: #fff;
     --max-width: 1100px;
   }
@@ -199,8 +199,8 @@ $tiles = [
 
   <script>
     function confirmClear() {
-      if (confirm("Are you sure you want to delete ALL attendance logs? This action cannot be undone.")) {
-        window.location.href = "archiveattendance.php";
+      if (confirm("Are you sure you want to archive ALL attendance and absent logs? This action cannot be undone.")) {
+        window.location.href = "archiveattendance_absent.php";
       }
   }
 </script>

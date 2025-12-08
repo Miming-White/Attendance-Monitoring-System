@@ -4,7 +4,7 @@ include 'config.php';
 // Step 1: Copy all records to the history table
 $archive_sql = "INSERT INTO archives (id, name, status)
                 SELECT id, name, status
-                FROM attendance_logs";
+                FROM absents";
 
 if (mysqli_query($conn, $archive_sql)) {
     // Step 2: Clear the attendance_logs table

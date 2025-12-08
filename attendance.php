@@ -1,148 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Lobster&display=swap" rel="stylesheet">
-    <style>
-    body {
-        font-family: 'Poppins', sans-serif;
-    }
-    h2 {
-        font-family: 'Poppins', sans-serif;
-        color: black;
-        font-weight: bold;
-        text-align: center;
-        margin-bottom: 30px;
-    }
-
-    .table-container {
-        background: rgba(255, 255, 255, 0.95);
-        color: black;
-        border-radius: 50px;
-        padding: 30px;
-        width: 90%;
-        margin: auto;
-        box-shadow: 0px 0px 20px rgba(0,0,0,0.4);
-    }
-
-    .table {
-    background-color: rgba(255, 255, 255, 0.9);
-    color: black;
-    overflow: hidden;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
-    }
-
-    .table th, 
-    .table td {
-        border: 1px solid rgba(255, 255, 255, 1.0);
-        padding: 12px;
-        opacity: 0.9;
-        text-align: center;
-    }
-
-    .table, th, td {
-        font-family: 'Poppins', sans-serif;
-    }
-
-    body::before {
-        content: "";
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: url('icons/bg.jpg') no-repeat center center/cover;
-        opacity: 0.3;
-        z-index: -1;
-    }
-
-    thead {
-    position: sticky;
-    top: 0;
-    z-index: 2;
-    }
-
-    .table tbody tr:hover {
-    background-color: rgba(0, 0, 0, 0.05);
-    }
-
-    thead tr {
-    background-color: #212529;
-    color: white;
-}
-    </style>
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Attendance Monitoring System</title>
-</head>
-<body style="margin: 50px;">
+    <title>Attendance Log</title>
 
-        <h2 style="font-weight: bold;">Attendance Log</h2>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+
+    <style>
+        h2 {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+            position: relative;
+            padding-top: 40px;
+            color: white;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('icons/bg.jpg') no-repeat center center/cover;
+            opacity: 0.3;
+            z-index: -1;
+        }
+
+        .table-container {
+            background: rgba(255, 255, 255, 0.95);
+            color: black;
+            border-radius: 50px;
+            padding: 30px;
+            width: 90%;
+            margin: auto;
+            box-shadow: 0px 0px 20px rgba(0,0,0,0.4);
+        }
+
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+
+        h2 {
+            color: black;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .table th, .table td {
+            text-align: center;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Attendance Log</h2>
 
     <div class="table-container">
 
-    <div class="mb-3 d-flex justify-content-between">
-        <a href="/Attendance-Monitoring-System/index.php">
-            <img src="icons/back.png" width="60" alt="Back" style="cursor: pointer;">
-    </a>
-        <a href="/Attendance-Monitoring-System/create.php">
-            <img src="icons/add.png" width="75" alt="Add Log" style="cursor: pointer;">
-    </a>
-    </div>
-        <br>
-        <table class = "table table-bordered table-hover bg-white text-dark">
-        <thead class= "table-dark text-center">
-            <tr>
-                <th>#</th>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Log Date/Time</th>
-                <th>Time Out</th>
-                <th>Status</th>
-                <th>Delete</th>
-                <th></th>
-            </tr>
-        </thead>
+        <div class="mb-3 d-flex justify-content-between">
+            <a href="index.php" class="btn btn-dark">< Dashboard</a>
+
+            <a href="archiveattendance.php" class="btn btn-danger">↓ Archive All Attendance</a>
+        </div>
+
+        <div class="mb-3 d-flex justify-content-between">
+            <a href="create.php" class="btn btn-success">+ TIME IN</a>
+        </div>
+
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Log Date/Time</th>
+                    <th>Time Out</th>
+                    <th>Status</th>
+                    <th>Delete</th>
+                    <th>Time Out Action</th>
+                </tr>
+            </thead>
+
             <tbody>
                 <?php
-                    include 'config.php';
+                include 'config.php';
 
-                    $sql = "SELECT * FROM attendance_logs";
-                    $result = mysqli_query($conn, $sql);
+                $sql = "SELECT * FROM attendance_logs ORDER BY number ASC";
+                $result = mysqli_query($conn, $sql);
 
-                    if (mysqli_num_rows($result) > 0) {
-                        while ($row = mysqli_fetch_assoc($result)) {
-                            echo "<tr>";
-                            echo "<td>" . $row['number'] . "</td>";
-                            echo "<td>" . $row['id'] . "</td>";
-                            echo "<td>" . $row['name'] . "</td>";
-                            echo "<td>" . $row['log_datetime'] . "</td>";
-                            echo "<td>" . $row['time_out'] . "</td>";
-                            echo "<td>" . $row['status'] . "</td>";
+                if (mysqli_num_rows($result) > 0) {
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        $num  = htmlspecialchars($row['number']);
+                        $id   = htmlspecialchars($row['id']);
+                        $name = htmlspecialchars($row['name']);
+                        $log  = htmlspecialchars($row['log_datetime']);
+                        $out  = htmlspecialchars($row['time_out']);
+                        $stat = htmlspecialchars($row['status']);
 
-                            echo "<td>
-
-                                    <a href='/Attendance-Monitoring-System/delete.php?number=" . $row['number'] . "' onclick=\"return confirm('Delete this record?');\">
-                                    <img src='icons/delete.png' width='45' alt='Delete' style='cursor:pointer;'>
-                                </a>
-                                </td>";
-
-                            echo "<td>
-                                    <a href='/Attendance-Monitoring-System/timeout.php?number=" . $row['number'] . "'>
-                                    <img src='icons/timeout.png' width='100' alt='Edit' style='cursor:pointer;'>
-                                </td>";
-
-                            echo "</tr>";
-
-                        }
-                    } else {
-                        echo "<tr><td colspan='7'>No record found</td></tr>";
+                        echo '<tr>
+                                <td>' . $num . '</td>
+                                <td>' . $id . '</td>
+                                <td>' . $name . '</td>
+                                <td>' . $log . '</td>
+                                <td>' . $out . '</td>
+                                <td>' . $stat . '</td>
+                                <td>
+                                    <a href="/Attendance-Monitoring-System/delete.php?number=' . $num . '"
+                                    class="btn btn-danger btn-sm"
+                                    onclick="return confirm(\'Delete this record?\');">
+                                        Delete
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="/Attendance-Monitoring-System/timeout.php?number=' . $num . '"
+                                        class="btn btn-dark btn-sm">
+                                            Time Out
+                                    </a>
+                                </td>
+                              </tr>';
                     }
+                } else {
+                    echo '<tr>
+                            <td colspan="8" class="text-center">No record found</td>
+                          </tr>';
+                }
 
-                    mysqli_close($conn);
+                mysqli_close($conn);
                 ?>
             </tbody>
         </table>
+
+    </div>
+
 </body>
 </html>

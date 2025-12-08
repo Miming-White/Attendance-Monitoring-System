@@ -114,8 +114,8 @@
                 </table>
 
                 <div class="d-flex justify-content-between mt-3">
-                    <a href="/Attendance-Monitoring-System/index.php" class="btn btn-primary">Dashboard</a>
-                    <a href="/Attendance-Monitoring-System/attendance.php" class="btn btn-secondary">Records</a>
+                    <a href="/Attendance-Monitoring-System/index.php" class="btn btn-dark">Dashboard</a>
+                    <a href="/Attendance-Monitoring-System/attendance.php" class="btn btn-info">Records</a>
                     <button type="submit" name="bulk_timein" class="btn btn-success">Time In Selected</button>
                 </div>
     </table>
