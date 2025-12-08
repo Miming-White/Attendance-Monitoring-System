@@ -1,13 +1,64 @@
 <?php
 $tiles = [
-    'A' => ['View Attendance', 'attendance.php', 'tile--wide-top'],
-    'B' => ['Time In', 'create.php', 'tile--square'],
-    'C' => ['Archive All Attendance and Absentees', "javascript:confirmClear()", 'tile--square'],
-    'D' => ['Register Attendee', 'register.php', 'tile--square'],
-    'E' => ['Absents', 'absent.php', 'tile--square'],
-    'F' => ['View Attendees', 'attendees.php', 'tile--wide-bottom'],
-    'G' => ['Archives', 'archive.php', 'tile--tall'],
+    'A' => ['View Attendance', 'attendance.php', 'tile--wide-top', 'clipboard'],
+    'B' => ['Time In', 'create.php', 'tile--square', 'clock'],
+    'C' => ['Archive All Attendance and Absentees', "javascript:confirmClear()", 'tile--square', 'archive'],
+    'D' => ['Register Attendee', 'register.php', 'tile--square', 'user-plus'],
+    'E' => ['Absents', 'absent.php', 'tile--square', 'alert'],
+    'F' => ['View Attendees', 'attendees.php', 'tile--wide-bottom', 'users'],
+    'G' => ['Archives', 'archive.php', 'tile--tall', 'folder'],
 ];
+
+function getIcon($name) {
+    switch ($name) {
+
+        case 'clock':
+            return '<svg width="26" height="26" fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>';
+
+        case 'archive':
+            return '<svg width="26" height="26" fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="3" y="3" width="18" height="4"></rect>
+                      <path d="M5 7h14v12a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V7z"></path>
+                    </svg>';
+
+        case 'user-plus':
+            return '<svg width="26" height="26" fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                      <circle cx="9" cy="7" r="4"></circle>
+                      <line x1="19" y1="8" x2="19" y2="14"></line>
+                      <line x1="16" y1="11" x2="22" y2="11"></line>
+                    </svg>';
+
+        case 'alert':
+            return '<svg width="26" height="26" fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.18 3.86a2 2 0 0 0-3.42 0z"></path>
+                      <line x1="12" y1="9" x2="12" y2="13"></line>
+                      <line x1="12" y1="17" x2="12" y2="17"></line>
+                    </svg>';
+
+        case 'users':
+            return '<svg width="26" height="26" fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M17 21v-2a4 4 0 0 0-3-3.87"></path>
+                      <path d="M9 21v-2a4 4 0 0 1 3-3.87"></path>
+                      <circle cx="12" cy="7" r="4"></circle>
+                    </svg>';
+
+        case 'folder':
+            return '<svg width="26" height="26" fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M3 7a2 2 0 0 1 2-2h5l2 2h7a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    </svg>';
+
+        default: // fallback icon
+            return '<svg width="26" height="26" fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="3" y="6" width="18" height="13" rx="2" ry="2"></rect>
+                      <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                    </svg>';
+    }
+}
+
 ?><!doctype html>
 <html lang="en">
 <head>
@@ -31,7 +82,7 @@ $tiles = [
         left: 0;
         width: 100%;
         height: 100%;
-        background: url('bg.jpg') no-repeat center center/cover;
+        background: url('icons/bg.jpg') no-repeat center center/cover;
         opacity: 0.3;
         z-index: -1;
     }
@@ -171,13 +222,9 @@ $tiles = [
         if ($k === 'E') $posClass = ' tile--pos-E';
       ?>
       <a href="<?= $url ?>" class="tile <?= $cls . $posClass ?>" role="listitem" aria-label="<?= $title ?>">
-        <span class="icon" aria-hidden="true">
-          <!-- SVG icon -->
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="6" width="18" height="13" rx="2" ry="2"></rect>
-            <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
-          </svg>
-        </span>
+      <span class="icon" aria-hidden="true">
+        <?= getIcon($t[3] ?? '') ?>
+      </span>
         <div class="meta">
           <h3><?= $title ?></h3>
           <p style="opacity:.85; font-size:12px;">Click to open</p>
@@ -189,7 +236,7 @@ $tiles = [
         margin-top: 25px;
         text-align: center;
         font-weight: 600;
-        font-size: 14px;
+        font-size: 18px;
         letter-spacing: 1px;
         color: #1f2937;
     ">

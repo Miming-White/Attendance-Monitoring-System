@@ -69,7 +69,7 @@
         <div class="mb-3 d-flex justify-content-between">
         <a href="index.php" class="btn btn-dark">< Dashboard</a>
 
-        <a href="index.php" class="btn btn-success">+ ADD NEW ATTENDEE</a>
+        <a href="register.php" class="btn btn-success">+ ADD NEW ATTENDEE</a>
         </div>
         <table class="table table-bordered table-striped">
             <thead>

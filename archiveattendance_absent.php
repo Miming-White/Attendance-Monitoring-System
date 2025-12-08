@@ -1,43 +1,30 @@
 <?php
 include 'config.php';
 
-// ---------------------------
-// ARCHIVE ABSENTEES
-// ---------------------------
-
+//ARCHIVE ABSENTEES
 $archive_absents = "INSERT INTO archives (id, name, status)
                     SELECT id, name, status FROM absents";
 
 $absents_ok = mysqli_query($conn, $archive_absents);
 
-// Clear absents table if archive successful
+//clear absents table if archive successful
 if ($absents_ok) {
     $clear_absents = mysqli_query($conn, "TRUNCATE TABLE absents");
 }
 
-
-
-// ---------------------------
-// ARCHIVE ATTENDANCE LOGS
-// ---------------------------
-
+//ARCHIVE ATTENDANCE LOGS
 $archive_attendance = "INSERT INTO archives (id, name, log_datetime, time_out, status)
                        SELECT id, name, log_datetime, time_out, status 
                        FROM attendance_logs";
 
 $attendance_ok = mysqli_query($conn, $archive_attendance);
 
-// Clear attendance table if archive successful
+//clear attendance table if archive successful
 if ($attendance_ok) {
     $clear_attendance = mysqli_query($conn, "TRUNCATE TABLE attendance_logs");
 }
 
-
-
-// ---------------------------
-// FINAL RESULT MESSAGE
-// ---------------------------
-
+//FINAL RESULT MESSAGE
 if ($absents_ok && $attendance_ok) {
     echo "
     <script>

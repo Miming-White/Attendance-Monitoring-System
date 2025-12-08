@@ -71,7 +71,11 @@
         <div class="mb-3 d-flex justify-content-between">
             <a href="index.php" class="btn btn-dark">< Dashboard</a>
 
-            <a href="archiveattendance.php" class="btn btn-danger">↓ Archive All Attendance</a>
+            <a href="archiveattendance.php"
+                class="btn btn-danger"
+                onclick="return confirm('Are you sure you want to archive ALL attendance? This action cannot be undone.');">
+                ↓ Archive All Attendance
+            </a>
         </div>
 
         <div class="mb-3 d-flex justify-content-between">

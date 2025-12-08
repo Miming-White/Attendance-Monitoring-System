@@ -29,7 +29,6 @@ $result = mysqli_query($conn, $sql);
             color: white;
         }
 
-        /* background same as attendance log */
         body::before {
             content: "";
             position: fixed;
@@ -42,7 +41,6 @@ $result = mysqli_query($conn, $sql);
             z-index: -1;
         }
 
-        /* white rounded box container */
         .table-container {
             background: rgba(255, 255, 255, 0.95);
             color: black;
@@ -81,7 +79,11 @@ $result = mysqli_query($conn, $sql);
         <div class="mb-3 d-flex justify-content-between">
             <a href="index.php" class="btn btn-dark">< Dashboard</a>
 
-            <a href="archiveabsent.php" class="btn btn-danger">↓ Archive All Absentees</a>
+            <a href="archiveabsent.php"
+                class="btn btn-danger"
+                onclick="return confirm('Are you sure you want to archive ALL absentees? This action cannot be undone.');">
+                ↓ Archive All Absentees
+            </a>
         </div>
 
         <div class="mb-3 d-flex justify-content-between">

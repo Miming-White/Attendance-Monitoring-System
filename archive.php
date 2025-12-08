@@ -1,7 +1,6 @@
 <?php
-include 'config.php'; // Your database connection
+include 'config.php';
 
-// Fetch all archived records
 $sql = "SELECT * FROM archives ORDER BY archived_at DESC";
 $result = mysqli_query($conn, $sql);
 ?>
@@ -13,11 +12,24 @@ $result = mysqli_query($conn, $sql);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Attendance History</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
     <style>
         body {
             font-family: 'Poppins', sans-serif;
             padding: 20px;
             background-color: #f8f9fa;
+        }
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('icons/bg.jpg') no-repeat center center/cover;
+            opacity: 0.3;
+            z-index: -1;
         }
         h2 {
             text-align: center;
@@ -33,8 +45,8 @@ $result = mysqli_query($conn, $sql);
     <div class="container">
         <h2>Attendance History</h2>
             <div class="mb-3">
-        <a href="index.php" class="btn btn-dark">Back to Dashboard</a>
-        <a href="deleteallarchive.php" class="btn btn-danger">Clear Archive</a>
+        <a href="index.php" class="btn btn-dark">< Dashboard</a>
+        <a href="deleteallarchive.php" class="btn btn-danger">x Clear Archive</a>
     </div>        
     <table class="table table-bordered table-striped">
             <thead class="table-dark text-center">

@@ -1,13 +1,13 @@
 <?php
 include 'config.php';
 
-// Step 1: Copy all records to the history table
+//copy all records to the history table
 $archive_sql = "INSERT INTO archives (id, name, log_datetime, time_out, status)
                 SELECT id, name, log_datetime, time_out, status
                 FROM attendance_logs";
 
 if (mysqli_query($conn, $archive_sql)) {
-    // Step 2: Clear the attendance_logs table
+    //clear the attendance_logs table
     $truncate_sql = "TRUNCATE TABLE attendance_logs";
 
     if (mysqli_query($conn, $truncate_sql)) {
